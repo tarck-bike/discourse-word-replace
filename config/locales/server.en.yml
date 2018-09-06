@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    discourse_word_replace_enabled: "Enable discourse-word-replace plugin"
+    discourse_word_replace_list: "Enter pairs of words for replacement, e.g. forks,pokes|red,black. Entries are pipe delimited"
