@@ -1,13 +1,13 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 function initializeDiscourseWordReplace(api, siteSettings) {
+		let words = siteSettings.discourse_word_replace_list.split('|');
 
 	api.decorateCooked($elem => {
-		let currText = $elem.children().first().text();
-		let words = Discourse.SiteSettings.discourse_word_replace_list.split('|');
+		let currText = $elem.children().first().text().toLowerCase().trim();
 		words.map(x => { 
-			let key = x.split(',')[0]; 
-			let val = x.split(',')[1]; 
+			let key = x.split(',')[0].toLowerCase().trim();
+			let val = x.split(',')[1].toLowerCase().trim();
 			currText = currText.replace(new RegExp(key, 'g'), val); 
 		});
 		$elem.children().first().text(currText);
