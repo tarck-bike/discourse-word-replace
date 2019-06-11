@@ -13,7 +13,7 @@ export function setup(helper) {
       let key = x.split(',')[0].toLowerCase().trim();
       let val = x.split(',')[1].toLowerCase().trim();
       md.core.textPostProcess.ruler.push(key, {
-        matcher: new RegExp(key, 'g'),
+        matcher: new RegExp(key, 'gi'),
         onMatch: function (buffer, matches, state) {
           let token = new state.Token('text', '', 0);
           token.content = val;
